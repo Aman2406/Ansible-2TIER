@@ -1,0 +1,7 @@
+#uname.yml
+
+---
+  - hosts: webservers:loadbalancer
+    tasks:
+      - name: Get the Operating system
+        shell: uname

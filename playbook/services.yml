@@ -1,0 +1,23 @@
+#installing services
+
+---
+  - hosts: loadbalancer
+    become: True
+    tasks:
+      - name: Installing Python
+        yum: name=httpd state=present
+      - name: Enable Apache on reboot
+        service: name=httpd state=started enabled=yes
+
+  - hosts: webservers
+    become: True
+    tasks:
+      - name: Installing services
+        yum:
+          name:
+            - httpd
+            - php
+          state: present 
+          
+      - name: Enable Apache on reboot
+        service: name=httpd state=started enabled=yes

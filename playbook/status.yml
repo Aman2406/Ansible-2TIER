@@ -1,0 +1,15 @@
+#Status Check
+
+---
+  - hosts: webservers:loadbalancer
+    become: True
+    tasks:
+      - name: Check status of Apache
+        command: service httpd status
+        args:
+          warn: no
+        changed_when: false
+
+      - name: Non-Failure
+        command: /bin/false
+        ignore_errors: yes

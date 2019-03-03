@@ -1,0 +1,13 @@
+#update.yml
+
+---
+  - hosts: webservers:loadbalancer
+    become: True
+    tasks:
+        - name: Updating the server
+          yum: name=* state=latest
+
+
+#{% for hosts in groups['webservers'] %}
+    #BalancerMember http://{{hostvars[hosts]['ansible_host']}}
+  #{% endfor %}

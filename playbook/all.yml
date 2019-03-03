@@ -1,0 +1,8 @@
+#all_in_one_playbook
+
+---
+  - import_playbook: ping.yml
+  - import_playbook: update.yml
+  - import_playbook: services.yml
+  - import_playbook: setup-aap.yml
+  - import_playbook: setup-lb.yml

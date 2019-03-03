@@ -1,0 +1,9 @@
+#setup-app.yml
+
+---
+  - hosts: webservers
+    become: True
+    roles:
+      - webservers
+
+    
